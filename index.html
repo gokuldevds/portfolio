@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gokul Dev D S  </title>
+
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Portfolio of Gokul Dev D S — Product Designer & Full‑Stack (MERN) Developer crafting intuitive, scalable, user‑centered solutions.">
+    <meta property="og:title" content="Gokul Dev D S | Product Designer & Full‑Stack Developer">
+    <meta property="og:description" content="I design and build user‑focused digital products that drive business goals.">
+    <meta property="og:image" content="https://placehold.co/1200x630/111827/E5E7EB?text=GDS">
+    <meta property="og:url" content="#">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>G</text></svg>">
+    
+    <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Animate On Scroll (AOS) for animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Fonts: Inter for body, Sora for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+        /* Custom styles to extend Tailwind */
+    :root {
+            --bg-light: #f7f8fb;
+            --bg-dark: #0f1115;
+            --text-light: #111827;
+            --text-dark: #e5e7eb;
+            --card-light: #ffffff;
+            --card-dark: #171923;
+            --accent: #6366f1; /* indigo-500 */
+            --accent-hover: #4f46e5; /* indigo-600 */
+            --radius-lg: 14px;
+            --radius-md: 12px;
+            --radius-sm: 10px;
+            --shadow-soft: 0 10px 30px rgba(0,0,0,.08);
+            --shadow-strong: 0 20px 50px rgba(0,0,0,.18);
+    }
+    body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1, h2, h3, h4, .font-heading { font-family: 'Sora', sans-serif; font-weight: 600; }
+    .dark body {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        .bg-card {
+            background-color: var(--card-light);
+            transition: background-color 0.3s;
+        }
+        .dark .bg-card {
+            background-color: var(--card-dark);
+        }
+        .text-accent { color: var(--accent); }
+        .bg-accent { background-color: var(--accent); }
+        .hover\:bg-accent-hover:hover { background-color: var(--accent-hover); }
+        .border-accent { border-color: var(--accent); }
+        .ring-accent { --tw-ring-color: var(--accent); }
+        .hero-bg {
+            position: relative;
+            background: radial-gradient(1200px 600px at 10% 10%, rgba(99,102,241,0.5) 0%, rgba(99,102,241,0) 60%),
+                        radial-gradient(900px 500px at 80% 20%, rgba(236,72,153,0.45) 0%, rgba(236,72,153,0) 55%),
+                        linear-gradient(135deg, #0b0d13 0%, #12172a 100%);
+        }
+        .hero-blob {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(400px 200px at 20% 70%, rgba(59,130,246,0.25) 0%, rgba(59,130,246,0) 60%),
+                        radial-gradient(500px 240px at 75% 80%, rgba(34,197,94,0.2) 0%, rgba(34,197,94,0) 60%);
+            filter: blur(40px);
+            opacity: .9;
+            pointer-events: none;
+        }
+        /* Lightbox backdrop blur helper */
+        .backdrop-blur { backdrop-filter: blur(6px); }
+        /* Card polish */
+        .card-hover { transition: transform .28s ease, box-shadow .28s ease; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); }
+        .card-hover:hover { transform: translateY(-6px); box-shadow: var(--shadow-strong); }
+        /* Section header gradient */
+        .title-gradient { background: linear-gradient(90deg, #a78bfa, #60a5fa, #34d399); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        /* Rounded utilities */
+        .rounded-lgx { border-radius: var(--radius-lg); }
+        .rounded-mdx { border-radius: var(--radius-md); }
+        .rounded-smx { border-radius: var(--radius-sm); }
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.4rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            line-height: 1;
+            transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,.08);
+            border: 1px solid transparent;
+            will-change: transform;
+        }
+        .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(0,0,0,.12); }
+        .btn:active { transform: translateY(0); box-shadow: 0 6px 18px rgba(0,0,0,.1); }
+        .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(99,102,241,.2); }
+
+        .btn-primary {
+            color: white;
+            background: linear-gradient(135deg, var(--accent) 0%, #7c83ff 100%);
+            border-color: rgba(255,255,255,.14);
+        }
+        .btn-primary:hover { background: linear-gradient(135deg, var(--accent-hover) 0%, #6b74ff 100%); }
+
+        .btn-secondary {
+            color: var(--text-light);
+            background: rgba(255,255,255,.85);
+            border-color: rgba(17,24,39,.08);
+        }
+        .dark .btn-secondary {
+            color: var(--text-dark);
+            background: rgba(255,255,255,.08);
+            border-color: rgba(255,255,255,.14);
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,.95); }
+        .dark .btn-secondary:hover { background: rgba(255,255,255,.12); }
+  </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-sm transition-all duration-300 border-b border-transparent">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <a href="#home" class="text-2xl font-bold font-heading text-accent">GDS</a>
+                <div class="flex items-center space-x-4">
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn" aria-label="Open main menu" aria-controls="mobile-nav" aria-expanded="false" class="md:hidden p-2 rounded-full hover:bg-white/10 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-12 6h12"></path></svg>
+                    </button>
+                    <!-- Theme toggle -->
+                    <button id="theme-toggle" aria-label="Toggle theme" class="hidden md:inline-flex p-2 rounded-full hover:bg-white/10 transition-colors">
+                        <!-- Sun Icon -->
+                        <svg id="theme-toggle-light-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        <!-- Moon Icon -->
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-text-secondary">
+                        <a href="#about" class="hover:text-text-primary transition-colors">About</a>
+                        <a href="#projects" class="hover:text-text-primary transition-colors">Work</a>
+                        <a href="#gallery" class="hover:text-text-primary transition-colors">Gallery</a>
+                        <a href="#contact" class="hover:text-text-primary transition-colors">Contact</a>
+      </nav>
+                </div>
+            </div>
+    </div>
+  </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-nav" class="fixed top-20 left-0 right-0 bg-dark/95 backdrop-blur-sm md:hidden hidden z-40 border-t border-white/10">
+        <nav class="flex flex-col space-y-2 p-4 text-center">
+            <a href="#about" class="hover:bg-white/5 rounded-lg py-3 transition-colors">About</a>
+            <a href="#projects" class="hover:bg-white/5 rounded-lg py-3 transition-colors">Work</a>
+            <a href="#gallery" class="hover:bg-white/5 rounded-lg py-3 transition-colors">Gallery</a>
+            <a href="#contact" class="hover:bg-white/5 rounded-lg py-3 transition-colors">Contact</a>
+        </nav>
+    </div>
+
+    <main class="container mx-auto px-6 pt-32 sm:pt-40">
+        <!-- 🏠 Home / Hero Section -->
+        <section id="home" class="min-h-[70vh] flex flex-col justify-center text-center relative" data-aos="fade-in">
+            <div class="hero-blob"></div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-heading tracking-tight" data-aos="fade-up">Gokul Dev D S</h1>
+            <h2 class="mt-4 text-2xl md:text-3xl font-semibold text-accent" data-aos="fade-up" data-aos-delay="200">Full‑Stack Developer</h2>
+            <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-text-secondary" data-aos="fade-up" data-aos-delay="400">
+                I design intuitive, scalable, and user-centered digital solutions that align with business objectives and drive growth.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4" data-aos="fade-up" data-aos-delay="600">
+                <a href="#projects" class="w-full sm:w-auto btn btn-primary">
+                    View My Work
+                </a>
+                <a href="./media/Gokul Dev D S(Resume).pdf" download="Gokul Dev D S(Resume).pdf" class="w-full sm:w-auto btn btn-secondary">
+                    Download CV
+        </a>
+      </div>
+            <div class="mt-6 flex items-center justify-center gap-4" data-aos="fade-up" data-aos-delay="700">
+                <a href="https://www.linkedin.com/in/gokuldevds" target="_blank" aria-label="LinkedIn" class="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                </a>
+                <a href="https://github.com/gokuldevds" target="_blank" aria-label="GitHub" class="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" clip-rule="evenodd"/></svg>
+                </a>
+    </div>
+  </section>
+
+        <!-- 🙋 About Me -->
+        <section id="about" class="py-24 sm:py-32" data-aos="fade-up">
+            <div class="grid md:grid-cols-5 gap-12 items-center">
+                <div class="md:col-span-2 flex justify-center">
+                    <div class="relative w-56 h-56 md:w-64 md:h-64">
+                        <img src="./media/Gokul Dev D S.jpg" alt="A professional headshot of Gokul Dev D S" class="rounded-full w-full h-full object-cover">
+                        <div class="absolute inset-0 rounded-full border-2 border-accent opacity-50 animate-pulse"></div>
+                    </div>
+                </div>
+                <div class="md:col-span-3 text-lg text-text-secondary space-y-4">
+                     <h2 class="text-3xl md:text-4xl font-bold text-text-primary font-heading mb-6">About Me</h2>
+                    <p>
+                        Computer Science graduate specializing in full‑stack web development (MERN) and UI/UX Designing. Strong foundation in software engineering, Designing, problem‑solving, and user‑focused applications. Expanding expertise in cloud, DevOps, and AI‑assisted development. Seeking opportunities to contribute as a  developer and grow in dynamic teams.
+                    </p>
+                    <!-- <div class="grid sm:grid-cols-2 gap-4 text-base">
+                        <div>
+                            <p class="text-text-primary font-medium">Education</p>
+                            <ul class="mt-2 space-y-1 list-disc list-inside">
+                                <li>B.Sc. Computer Science — University of Kerala, UIT Pirappancode (2025) — 67% (CGPA 6.71)</li>
+                                <li>Higher Secondary (Biology Science) — Govt HSS, Elampa (2022) — 86.75%</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-text-primary font-medium">Contact</p>
+                            <ul class="mt-2 space-y-1">
+                                <li>Thiruvananthapuram, Kerala</li>
+                                <li><a href="mailto:gokuldevds@gmail.com" class="text-accent hover:underline">gokuldevds@gmail.com</a></li>
+                                <li><a href="tel:+918590987807" class="text-accent hover:underline">+91 85909 87807</a></li>
+                                <li><a href="https://www.linkedin.com/in/gokuldevds" target="_blank" class="text-accent hover:underline">linkedin.com/in/gokuldevds</a></li>
+                            </ul>
+                        </div>
+                    </div> -->
+      </div>
+    </div>
+  </section>
+
+        <!-- 💼 Work / Case Studies -->
+        <section id="projects" class="py-24 sm:py-32" data-aos="fade-up">
+            <div class="text-center mb-16">
+                 <h2 class="text-3xl md:text-4xl font-extrabold font-heading text-text-primary">Selected Projects</h2>
+                 <p class="max-w-2xl mx-auto text-text-secondary mt-4">A selection of projects that demonstrate my capabilities in product design.</p>
+            </div>
+            <div class="grid md:grid-cols-1 gap-12">
+                <!-- Case Study 1 -->
+                <article class="grid md:grid-cols-2 gap-8 items-center" data-aos="fade-up">
+                    <div class="card overflow-hidden">
+                       <img src="./media/auctionelite/Screenshot 2025-10-10 193555.png" alt="Auction Elite project user interface mockup" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <span class="text-sm font-semibold text-accent">MERN • REAL‑TIME BIDDING</span>
+                        <h3 class="text-2xl font-bold font-heading mt-2">Auction Elite — Online Auction Platform</h3>
+                        <p class="text-text-secondary mt-4">Online auction platform with real‑time bidding, product listing, payment gateway, and role‑based authentication. Focused on secure transactions and usable flows.</p>
+                        <div class="flex flex-wrap gap-3 mt-6 text-sm">
+                            <span class="bg-white/5 text-text-primary font-medium px-3 py-1 rounded-full">MongoDB</span>
+                            <span class="bg-white/5 text-text-primary font-medium px-3 py-1 rounded-full">Express</span>
+                            <span class="bg-white/5 text-text-primary font-medium px-3 py-1 rounded-full">React</span>
+                            <span class="bg-white/5 text-text-primary font-medium px-3 py-1 rounded-full">Node.js</span>
+                        </div>
+                         
+                    </div>
+                </article>
+                <!-- Case Study 2 -->
+                <article class="grid md:grid-cols-2 gap-8 items-center" data-aos="fade-up">
+                    <div class="md:order-2 card overflow-hidden">
+                       <img src="./media/inseek/Screenshot 2025-10-10 194305.png" alt="Cloud Security dashboard mockup" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:order-1">
+                        <span class="text-sm font-semibold text-accent">MERN • InSeek</span>
+                        <h3 class="text-2xl font-bold font-heading mt-2">InSeek – Local Business Connect Platform</h3>
+                        <p class="text-text-secondary mt-4">
+                            Full-stack web application designed to connect customers with local service providers and small businesses. 
+                            InSeek enables users to discover, list, and manage businesses effortlessly through a community-driven platform, 
+                            bridging the gap between local entrepreneurs and their customers.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mt-6 text-sm">
+                            <span class="bg-white/5 text-text-primary font-medium px-3 py-1 rounded-full">MERN Stack</span>
+                            <span class="bg-white/5 text-text-primary font-medium px-3 py-1 rounded-full">Business Networking</span>
+                            <span class="bg-white/5 text-text-primary font-medium px-3 py-1 rounded-full">Community Platform</span>
+                            <span class="bg-white/5 text-text-primary font-medium px-3 py-1 rounded-full">Customer Engagement</span>
+                        </div>
+                    </div>
+                    
+                </article>
+            </div>
+            <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="100">
+                <p class="text-text-secondary mb-4">Want to explore more of my work?</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a href="#gallery" class="btn btn-primary">Browse Gallery</a>
+                    <a href="https://github.com/gokuldevds" target="_blank" class="btn btn-secondary">More on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🖼️ Gallery Section -->
+        <section id="gallery" class="py-24 sm:py-32" data-aos="fade-up">
+            <div class="text-center mb-16">
+                 <h2 class="text-3xl md:text-4xl font-extrabold font-heading text-text-primary">My Works</h2>
+                 <p class="max-w-2xl mx-auto text-text-secondary mt-4">A closer look at the visual design and components from my projects.</p>
+            </div>
+            <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Gallery 1: AuctionElite -->
+                <div class="card p-6 md:p-8" data-aos="fade-up">
+                    <h3 class="font-heading text-xl font-bold mb-4">AuctionElite Gallery</h3>
+                    <div class="relative w-full" data-carousel="gallery-1">
+                        <!-- Carousel wrapper -->
+                        <div class="relative h-80 overflow-hidden rounded-lg">
+                            <div class="carousel-item duration-700 ease-in-out">
+                                <img src="./media/auctionelite/Screenshot 2025-10-10 193555.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="AuctionElite Dashboard" >
+                            </div>
+                            <!-- <div class="carousel-item duration-700 ease-in-out hidden">
+                                <img src="https://placehold.co/800x600/1F2937/FFFFFF?text=Bidding+Modal" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Bidding Modal" data-caption="Real-time bidding modal with countdown timer.">
+                            </div>
+                            <div class="carousel-item duration-700 ease-in-out hidden">
+                                <img src="https://placehold.co/800x600/1F2937/FFFFFF?text=Mobile+View" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Mobile Responsive View" data-caption="Responsive view for the main auction listings on mobile.">
+                            </div> -->
+                        </div>
+                        <!-- Caption -->
+                        <p class="carousel-caption text-center text-sm text-text-secondary mt-4 h-8 transition-opacity duration-300">AuctionElite</p>
+                        <!-- Slider controls -->
+                        <button type="button" class="carousel-prev absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none">
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 group-hover:bg-white/20">
+                                <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/></svg>
+                                <span class="sr-only">Previous</span>
+                            </span>
+                        </button>
+                        <button type="button" class="carousel-next absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none">
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 group-hover:bg-white/20">
+                                <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/></svg>
+                                <span class="sr-only">Next</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Gallery 2: CloudSecurity -->
+                <div class="card p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-heading text-xl font-bold mb-4">InSeek Gallery</h3>
+                     <div class="relative w-full" data-carousel="gallery-2">
+                        <!-- Carousel wrapper -->
+                        <div class="relative h-80 overflow-hidden rounded-lg">
+                            <div class="carousel-item duration-700 ease-in-out">
+                                <img src="./media/inseek/Screenshot 2025-10-10 194305.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Permissions Table" >
+                            </div>
+                            <div class="carousel-item duration-700 ease-in-out hidden">
+                                <img src="./media/inseek/Screenshot 2025-10-06 231106.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Audit Log" data-caption="Detailed audit log with filtering and export options.">
+                            </div>
+                            <div class="carousel-item duration-700 ease-in-out hidden">
+                                <img src="./media/inseek/Screenshot 2025-10-06 230724.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Alert Settings" data-caption="Configuration screen for setting up security alerts.">
+                            </div>
+                            <div class="carousel-item duration-700 ease-in-out hidden">
+                                <img src="./media/inseek/Screenshot 2025-10-06 230654.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Alert Settings" data-caption="Configuration screen for setting up security alerts.">
+                            </div>
+                            <div class="carousel-item duration-700 ease-in-out hidden">
+                                <img src="./media/inseek/Screenshot 2025-10-06 221002.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Alert Settings" data-caption="Configuration screen for setting up security alerts.">
+        </div>
+      </div>
+                        <!-- Caption -->
+                        <p class="carousel-caption text-center text-sm text-text-secondary mt-4 h-8 transition-opacity duration-300">InSeek</p>
+                        <!-- Slider controls -->
+                        <button type="button" class="carousel-prev absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none">
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 group-hover:bg-white/20">
+                                <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/></svg>
+                                <span class="sr-only">Previous</span>
+                            </span>
+                        </button>
+                        <button type="button" class="carousel-next absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none">
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 group-hover:bg-white/20">
+                                <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/></svg>
+                                <span class="sr-only">Next</span>
+                            </span>
+                        </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+        <!-- 🔧 Skills (Revised) -->
+        <section id="skills" class="py-20" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-center mb-12 title-gradient">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-center">
+                <div class="bg-card p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="50">
+                    <h3 class="text-xl font-semibold mb-4">Frontend</h3>
+                    <div class="space-y-2">
+                        <p>React.js</p>
+        <p>Tailwind CSS</p>
+                    </div>
+      </div>
+                <div class="bg-card p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold mb-4">Backend</h3>
+                    <div class="space-y-2">
+        <p>Node.js</p>
+                        <p>Express.js</p>
+        <p>MongoDB</p>
+      </div>
+                </div>
+                <div class="bg-card p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="150">
+                    <h3 class="text-xl font-semibold mb-4">Cloud & DevOps</h3>
+                    <div class="space-y-2">
+                        <p>AWS (EC2, Hosting)</p>
+                        <p>Docker</p>
+                        <p>Jenkins (CI/CD)</p>
+                    </div>
+                </div>
+                <div class="bg-card p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold mb-4">UI/UX Design</h3>
+                    <div class="space-y-2">
+        <p>Figma</p>
+                        <p>Design Thinking</p>
+                        <p>UI Engineering</p>
+                    </div>
+                </div>
+                <div class="bg-card p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="250">
+                    <h3 class="text-xl font-semibold mb-4">AI & Tools</h3>
+                    <div class="space-y-2">
+                        <p>Prompt engineering</p>
+                        <p>AI‑assisted debugging & optimization</p>
+                        <p>Git, GitHub, Jira</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+        <!-- 🔁 Process -->
+        <section id="certifications" class="py-20" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-center mb-12 title-gradient">Courses & Certifications</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-card p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="50">
+                    <h3 class="text-xl font-semibold mb-2">Full Stack Development (MERN)</h3>
+                    <p class="text-gray-600 dark:text-gray-400">ICT Academy of Kerala (Ongoing)</p>
+                </div>
+                <div class="bg-card p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold mb-2">Figma Essential Training</h3>
+                    <p class="text-gray-600 dark:text-gray-400">LinkedIn Learning</p>
+                </div>
+                <div class="bg-card p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="150">
+                    <h3 class="text-xl font-semibold mb-2">AI Aware & AI Appreciate</h3>
+                    <p class="text-gray-600 dark:text-gray-400">LinkedIn/NASBA</p>
+                </div>
+                <div class="bg-card p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold mb-2">Advanced Prompt Engineering</h3>
+                    <p class="text-gray-600 dark:text-gray-400">LinkedIn</p>
+                </div>
+    </div>
+  </section>
+
+    
+
+        <!-- 📩 Contact -->
+        <section id="contact" class="py-20 text-center" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+            <p class="max-w-xl mx-auto mb-8 text-gray-600 dark:text-gray-400">
+                I'm currently open to new opportunities. Feel free to reach out if you have a project in mind or just want to connect!
+            </p>
+            <div class="mb-8 space-y-4">
+                <div class="flex items-center justify-center space-x-2">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    <a href="tel:+918590987807" class="text-gray-600 dark:text-gray-400 hover:text-accent">+91 85909 87807</a>
+                </div>
+                <div class="flex items-center justify-center space-x-2">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span class="text-gray-600 dark:text-gray-400">Thiruvananthapuram, Kerala, India</span>
+                </div>
+            </div>
+            <a href="mailto:gokuldevds@gmail.com" class="inline-block px-10 py-4 text-lg font-semibold text-white bg-accent rounded-lg shadow-lg hover:bg-accent-hover transition-transform transform hover:scale-105">
+                Say Hello
+            </a>
+            <div class="mt-12 flex justify-center space-x-6">
+                 <a href="mailto:gokuldevds@gmail.com" class="text-gray-500 dark:text-gray-400 hover:text-accent dark:hover:text-accent transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </a>
+                <a href="tel:+918590987807" class="text-gray-500 dark:text-gray-400 hover:text-accent dark:hover:text-accent transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/gokuldevds" target="_blank" class="text-gray-500 dark:text-gray-400 hover:text-accent dark:hover:text-accent transition-colors">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                </a>
+                <a href="https://github.com/gokuldevds" target="_blank" class="text-gray-500 dark:text-gray-400 hover:text-accent dark:hover:text-accent transition-colors">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" clip-rule="evenodd"/></svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-card mt-20">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500 dark:text-gray-400">
+            <p>&copy; 2025 Gokul Dev D S. All Rights Reserved.</p>
+        </div>
+  </footer>
+
+    <!-- Animate On Scroll (AOS) JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 700,
+            once: true,
+            offset: 50,
+        });
+
+        // Dark/Light Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const htmlEl = document.documentElement;
+
+        // Check for saved theme in localStorage and apply it
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      htmlEl.classList.add('dark');
+      lightIcon.classList.add('hidden');
+      darkIcon.classList.remove('hidden');
+        } else {
+            htmlEl.classList.remove('dark');
+            lightIcon.classList.remove('hidden');
+            darkIcon.classList.add('hidden');
+    }
+
+        themeToggleBtn.addEventListener('click', function() {
+      htmlEl.classList.toggle('dark');
+            const isDark = htmlEl.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+            lightIcon.classList.toggle('hidden', isDark);
+            darkIcon.classList.toggle('hidden', !isDark);
+        });
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.add('hidden');
+            });
+        });
+
+        // Gallery Carousel Logic (data-carousel)
+        document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+            const items = carousel.querySelectorAll('.carousel-item');
+            const caption = carousel.querySelector('.carousel-caption');
+            let currentIndex = 0;
+            let intervalId;
+
+            const showItem = (index) => {
+                items.forEach((item, i) => item.classList.toggle('hidden', i !== index));
+                if (caption && items[index].querySelector('img')?.dataset.caption) {
+                    caption.textContent = items[index].querySelector('img').dataset.caption;
+                }
+            };
+
+            const nextItem = () => {
+                currentIndex = (currentIndex + 1) % items.length;
+                showItem(currentIndex);
+            };
+
+            const prevItem = () => {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                showItem(currentIndex);
+            };
+
+            const startAutoSlide = () => {
+                intervalId = setInterval(nextItem, 3000);
+            };
+
+            const stopAutoSlide = () => {
+                clearInterval(intervalId);
+            };
+
+            // Controls
+            carousel.querySelector('.carousel-next')?.addEventListener('click', () => {
+                stopAutoSlide();
+                nextItem();
+                startAutoSlide();
+            });
+
+            carousel.querySelector('.carousel-prev')?.addEventListener('click', () => {
+                stopAutoSlide();
+                prevItem();
+                startAutoSlide();
+            });
+
+            // Pause on hover or focus
+            carousel.addEventListener('mouseenter', stopAutoSlide);
+            carousel.addEventListener('mouseleave', startAutoSlide);
+            carousel.addEventListener('focusin', stopAutoSlide);
+            carousel.addEventListener('focusout', startAutoSlide);
+
+            // Initialize
+            showItem(currentIndex);
+            startAutoSlide();
+        });
+
+        // -----------------------------
+        // Scrollspy for active section
+        // -----------------------------
+        const sections = ['home','about','projects','gallery','process','skills','testimonials','contact'];
+        const navLinks = Array.from(document.querySelectorAll('header nav a'));
+        const mobileNavLinks = Array.from(document.querySelectorAll('#mobile-nav a'));
+
+        function setActive(id) {
+            const matcher = (a) => a.getAttribute('href') === `#${id}`;
+            [...navLinks, ...mobileNavLinks].forEach(a => {
+                const active = matcher(a);
+                a.classList.toggle('text-accent', active);
+                a.classList.toggle('font-semibold', active);
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    if (sections.includes(id)) setActive(id);
+                }
+            });
+        }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        // -----------------------------
+        // Gallery Albums Toggle
+        // -----------------------------
+        const albumTabs = document.querySelectorAll('.album-tab');
+        const albumSections = document.querySelectorAll('.album');
+
+        function showAlbum(key) {
+            albumSections.forEach(section => {
+                const isMatch = section.getAttribute('data-album') === key;
+                section.classList.toggle('hidden', !isMatch);
+            });
+            albumTabs.forEach(btn => {
+                const active = btn.getAttribute('data-album') === key;
+                btn.classList.toggle('bg-accent', active);
+                btn.classList.toggle('text-white', active);
+            });
+        }
+
+        if (albumTabs.length) {
+            // Default: show first album
+            showAlbum(albumTabs[0].getAttribute('data-album'));
+            albumTabs.forEach(btn => btn.addEventListener('click', () => {
+                showAlbum(btn.getAttribute('data-album'));
+            }));
+        }
+
+        // -----------------------------
+        // Lightbox Modal
+        // -----------------------------
+        const lightboxImages = document.querySelectorAll('#gallery img[data-lightbox-group]');
+        const bodyEl = document.body;
+        let lightboxState = { group: '', index: 0, items: [] };
+
+        function buildLightbox() {
+            const html = `
+                <div id="lightbox" class="fixed inset-0 z-[100] hidden">
+                    <div class="absolute inset-0 bg-black/70 backdrop-blur"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
+                        <button id="lb-close" class="absolute top-4 right-4 p-2 rounded-full bg-white/90 hover:bg-white shadow">✕</button>
+                        <div class="relative w-full max-w-5xl">
+                            <img id="lb-image" src="" alt="" class="w-full max-h-[75vh] object-contain rounded-lg shadow-lg bg-card" />
+                            <button id="lb-prev" class="absolute left-0 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white rounded-full shadow">&#10094;</button>
+                            <button id="lb-next" class="absolute right-0 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white rounded-full shadow">&#10095;</button>
+                        </div>
+                        <div id="lb-caption" class="mt-4 text-center text-white/90"></div>
+                    </div>
+                </div>`;
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = html;
+            bodyEl.appendChild(wrapper.firstElementChild);
+        }
+
+        function openLightbox(group, startIndex) {
+            if (!document.getElementById('lightbox')) buildLightbox();
+            const lb = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lb-image');
+            const lbCaption = document.getElementById('lb-caption');
+
+            // Collect items for this group
+            const items = Array.from(document.querySelectorAll(`#gallery img[data-lightbox-group='${group}']`)).map((img, i) => ({
+                src: img.getAttribute('src'),
+                title: img.getAttribute('data-lightbox-title') || '',
+                index: i
+            }));
+            lightboxState = { group, index: startIndex, items };
+
+            function render() {
+                const current = lightboxState.items[lightboxState.index];
+                lbImg.setAttribute('src', current.src);
+                lbImg.setAttribute('alt', current.title);
+                lbCaption.textContent = current.title;
+            }
+
+            function go(delta) {
+                const len = lightboxState.items.length;
+                lightboxState.index = (lightboxState.index + delta + len) % len;
+                render();
+            }
+
+            document.getElementById('lb-prev').onclick = () => go(-1);
+            document.getElementById('lb-next').onclick = () => go(1);
+            document.getElementById('lb-close').onclick = () => { lb.classList.add('hidden'); };
+            lb.onclick = (e) => { if (e.target === lb) lb.classList.add('hidden'); };
+            document.addEventListener('keydown', function onKey(e){
+                if (lb.classList.contains('hidden')) { document.removeEventListener('keydown', onKey); return; }
+                if (e.key === 'ArrowLeft') go(-1);
+                if (e.key === 'ArrowRight') go(1);
+                if (e.key === 'Escape') lb.classList.add('hidden');
+            });
+
+            render();
+            lb.classList.remove('hidden');
+        }
+
+        // Wire clicks
+        const groupToImages = {};
+        lightboxImages.forEach((img) => {
+            const group = img.getAttribute('data-lightbox-group');
+            if (!groupToImages[group]) groupToImages[group] = [];
+            groupToImages[group].push(img);
+        });
+        Object.keys(groupToImages).forEach(group => {
+            groupToImages[group].forEach((img, index) => {
+                img.addEventListener('click', () => openLightbox(group, index));
+            });
+    });
+  </script>
+</body>
+</html>
